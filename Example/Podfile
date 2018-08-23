@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SGChart_Example' do
+  pod 'SGChart', :path => '../'
+
+  target 'SGChart_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
