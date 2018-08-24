@@ -1,0 +1,28 @@
+{
+  "name": "SGChart",
+  "version": "0.1.0",
+  "summary": "A short description of SGChart.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/oxape/SGChart",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "oxape": "1054572107@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/oxape/SGChart.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.3"
+  },
+  "source_files": "SGChart/**/*",
+  "swift_version": "4.1",
+  "dependencies": {
+    "Charts": [
+      "~> 3.1.1"
+    ]
+  }
+}
