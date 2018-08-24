@@ -27,16 +27,19 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         SGLegendFlowLayout *flowLayout = [[SGLegendFlowLayout alloc] init];
-        flowLayout.legendAlignment = SGLegendAlignmentRight;
+        flowLayout.legendAlignment = SGLegendAlignmentLeft;
         flowLayout.minimumInteritemSpacing = 8;
         flowLayout.minimumLineSpacing = 8;
         flowLayout.sectionInset = UIEdgeInsetsMake(0, 16, 0, 16);
-        flowLayout.itemSize = UICollectionViewFlowLayoutAutomaticSize;
+        if (@available(iOS 10.0, *)) {
+            flowLayout.itemSize = UICollectionViewFlowLayoutAutomaticSize;
+        }
         flowLayout.estimatedItemSize = CGSizeMake(44, 22);
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
         _collectionView.backgroundColor = [UIColor clearColor];
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
+        _collectionView.scrollEnabled = NO;
         [_collectionView registerClass:[SGLegendItem class] forCellWithReuseIdentifier:NSStringFromClass([SGLegendItem class])];
     }
     return _collectionView;
@@ -69,11 +72,6 @@
     [self layoutIfNeeded];
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.collectionViewHeightConstraint.constant = self.collectionView.contentSize.height;
-}
-
 #pragma mark - action
 
 - (void)setDataSource:(NSArray<SGLegendModel *> *)dataSource {
@@ -82,7 +80,6 @@
     [UIView performWithoutAnimation:^{
         [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
     }];
-    [self layoutIfNeeded];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -102,7 +99,7 @@
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    self.collectionViewHeightConstraint.constant = self.collectionView.contentSize.height;
+    self.collectionViewHeightConstraint.constant = self.collectionView.collectionViewLayout.collectionViewContentSize.height;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,12 +109,12 @@
     if (model.selected) {
         [model.chartDataSet clear];
     } else {
-         id<IChartDataSet> originalChartDataSet = self.origianlDataSource[indexPath.row].chartDataSet;
+        id<IChartDataSet> originalChartDataSet = self.origianlDataSource[indexPath.row].chartDataSet;
         model.chartDataSet = [SGLegendModel copyItem:originalChartDataSet];
     }
-//    [UIView performWithoutAnimation:^{
-//        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-//    }];
+    //    [UIView performWithoutAnimation:^{
+    //        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+    //    }];
     [collectionView reloadData];
     NSArray *tempArr = [[NSArray alloc] initWithArray:self.dataSource copyItems:YES];
     if (self.didSelectItemAtIndexPath) {
