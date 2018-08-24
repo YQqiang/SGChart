@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SGChart'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SGChart.'
+  s.summary          = 'SGChart'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/oxape/SGChart'
+  s.homepage         = 'http://app.sungrow.cn:3000/yuqiang/SGChart'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'oxape' => '1054572107@qq.com' }
-  s.source           = { :git => 'https://github.com/oxape/SGChart.git', :tag => s.version.to_s }
+#  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.author           = { 'yuqiang' => '1054572107@qq.com' }
+  s.source           = { :git => 'http://app.sungrow.cn:3000/yuqiang/SGChart.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.3'
