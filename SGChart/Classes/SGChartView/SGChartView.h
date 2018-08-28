@@ -16,6 +16,8 @@
 @optional
 - (void)sgChartValueSelected:(SGChartView *)sgChartView entry:(ChartDataEntry *)entry highlight:(ChartHighlight *)highlight;
 - (void)sgChartValueNothingSelected:(SGChartView *)sgChartView;
+- (void)sgChartScaled:(SGChartView *)sgChartView scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY;
+- (void)sgChartTranslated:(SGChartView *)sgChartView dX:(CGFloat)dX dY:(CGFloat)dY;
 
 @end
 

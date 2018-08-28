@@ -141,6 +141,19 @@
     [self refreshMarkerView:nil];
 }
 
+- (void)sgChartValueNothingSelected:(SGChartView *)sgChartView {
+    
+}
+
+- (void)sgChartScaled:(SGChartView *)sgChartView scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY {
+    NSLog(@"----- scaleX = %lf, ----- scaleY = %lf", scaleX, scaleY);
+}
+
+- (void)sgChartTranslated:(SGChartView *)sgChartView dX:(CGFloat)dX dY:(CGFloat)dY {
+    sgChartView.markerView.hidden = YES;
+    NSLog(@"----- dX = %lf, ----- dY = %lf", dX, dY);
+}
+
 - (void)refreshMarkerView:(NSArray *)arr {
     NSArray *content = @[@"323423423323423423323423423323423423323423423", @"#$%^^%$$%", @"sdfasdfasdf", @"第四行"];
     if (arr) {

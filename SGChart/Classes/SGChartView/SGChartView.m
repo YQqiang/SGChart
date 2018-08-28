@@ -120,4 +120,20 @@ static const CGFloat ChartViewHeight = 200;
     }
 }
 
+- (void)chartScaled:(ChartViewBase *)chartView scaleX:(CGFloat)scaleX scaleY:(CGFloat)scaleY {
+    if ([self.sgChartViewDelegate conformsToProtocol:@protocol(SGChartViewDelegate)]) {
+        if ([self.sgChartViewDelegate respondsToSelector:@selector(sgChartScaled:scaleX:scaleY:)]) {
+            [self.sgChartViewDelegate sgChartScaled:self scaleX:scaleX scaleY:scaleY];
+        }
+    }
+}
+
+- (void)chartTranslated:(ChartViewBase *)chartView dX:(CGFloat)dX dY:(CGFloat)dY {
+    if ([self.sgChartViewDelegate conformsToProtocol:@protocol(SGChartViewDelegate)]) {
+        if ([self.sgChartViewDelegate respondsToSelector:@selector(sgChartTranslated:dX:dY:)]) {
+            [self.sgChartViewDelegate sgChartTranslated:self dX:dX dY:dY];
+        }
+    }
+}
+
 @end
