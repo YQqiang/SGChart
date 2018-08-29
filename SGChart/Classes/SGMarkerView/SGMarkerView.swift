@@ -12,12 +12,18 @@ public class SGMarkerView: UIView {
     
     private let TotalRowCount = 5
     
-    fileprivate lazy var topConstraint: NSLayoutConstraint = {
-        return self.topAnchor.constraint(equalTo: self.superview!.topAnchor, constant: 0)
+    fileprivate lazy var topConstraint: NSLayoutConstraint? = {
+        guard let superV = self.superview else {
+            return nil;
+        }
+        return self.topAnchor.constraint(equalTo: superV.topAnchor, constant: 0)
     }()
     
-    fileprivate lazy var leadingConstraint: NSLayoutConstraint = {
-        return self.leadingAnchor.constraint(equalTo: self.superview!.leadingAnchor, constant: 0)
+    fileprivate lazy var leadingConstraint: NSLayoutConstraint? = {
+        guard let superV = self.superview else {
+            return nil;
+        }
+        return self.leadingAnchor.constraint(equalTo: superV.leadingAnchor, constant: 0)
     }()
     
     fileprivate lazy var stackView: UIStackView = {
@@ -60,15 +66,18 @@ public class SGMarkerView: UIView {
     
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
-        widthAnchor.constraint(lessThanOrEqualTo: superview!.widthAnchor, multiplier: 1, constant: -16).isActive = true
+        guard let superV = superview else {
+            return;
+        }
+        widthAnchor.constraint(lessThanOrEqualTo: superV.widthAnchor, multiplier: 1, constant: -16).isActive = true
         
-        leftAnchor.constraint(greaterThanOrEqualTo: superview!.leftAnchor, constant: 8).isActive = true
-        rightAnchor.constraint(lessThanOrEqualTo: superview!.rightAnchor, constant: -8).isActive = true
-        topConstraint.isActive = true
-        leadingConstraint.isActive = true
+        leftAnchor.constraint(greaterThanOrEqualTo: superV.leftAnchor, constant: 8).isActive = true
+        rightAnchor.constraint(lessThanOrEqualTo: superV.rightAnchor, constant: -8).isActive = true
+        topConstraint?.isActive = true
+        leadingConstraint?.isActive = true
         
-        topConstraint.priority = .defaultLow
-        leadingConstraint.priority = .defaultLow
+        topConstraint?.priority = .defaultLow
+        leadingConstraint?.priority = .defaultLow
     }
     
     @objc open func refreshContent(positon: CGPoint, content: [String]) {
@@ -89,8 +98,8 @@ public class SGMarkerView: UIView {
         finalOrigin.x = positon.x > superViewW * 0.5 ? positon.x - self.frame.width : positon.x
         finalOrigin.y = (superViewH - positon.y - 24) > self.frame.height ? positon.y : superViewH - self.frame.height - 24
         
-        topConstraint.constant = finalOrigin.y
-        leadingConstraint.constant = finalOrigin.x
+        topConstraint?.constant = finalOrigin.y
+        leadingConstraint?.constant = finalOrigin.x
         
         UIView.animate(withDuration: 0.25) {
             self.superview?.layoutIfNeeded()
