@@ -80,7 +80,7 @@ static const CGFloat ChartViewHeight = 200;
     
     [self addSubview:self.yUnitView];
     self.yUnitView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.yUnitView.topAnchor constraintEqualToAnchor:self.legendView.bottomAnchor constant:8].active = YES;
+    [self.yUnitView.topAnchor constraintEqualToAnchor:self.legendView.bottomAnchor constant:20].active = YES;
     [self.yUnitView.leftAnchor constraintEqualToAnchor:self.leftAnchor].active = YES;
     [self.yUnitView.rightAnchor constraintEqualToAnchor:self.rightAnchor].active = YES;
     

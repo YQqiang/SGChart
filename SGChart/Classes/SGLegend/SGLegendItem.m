@@ -29,7 +29,7 @@
     if (!_legendDescription) {
         _legendDescription = [[UILabel alloc] init];
         _legendDescription.numberOfLines = 1;
-        _legendDescription.font = [UIFont systemFontOfSize:10];
+        _legendDescription.font = [UIFont systemFontOfSize:12];
         _legendDescription.textColor = [UIColor blackColor];
     }
     return _legendDescription;

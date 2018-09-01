@@ -42,7 +42,7 @@
     [super viewDidLoad];
     [self.view addSubview:self.chartView];
     self.chartView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.chartView.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
+    [self.chartView.topAnchor constraintEqualToAnchor:self.topLayoutGuide.topAnchor constant:32].active = YES;
     [self.chartView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
     [self.chartView.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
     [self.chartView chartHeightConstraint:0 active:NO];
