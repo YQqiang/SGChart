@@ -10,7 +10,7 @@ import UIKit
 
 public class SGMarkerView: UIView {
     
-    private let TotalRowCount = 5
+    private let TotalRowCount = 10
     
     fileprivate lazy var topConstraint: NSLayoutConstraint? = {
         guard let superV = self.superview else {
@@ -29,7 +29,7 @@ public class SGMarkerView: UIView {
     fileprivate lazy var stackView: UIStackView = {
         let stakcV = UIStackView()
         stakcV.axis = .vertical
-        stakcV.spacing = 2
+        stakcV.spacing = 0
         stakcV.alignment = .leading
         stakcV.distribution = .equalSpacing
         return stakcV
@@ -45,13 +45,13 @@ public class SGMarkerView: UIView {
         
         addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
+        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 6).isActive = true
         stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 8).isActive = true
         stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -8).isActive = true
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
         
-        for _ in 0..<5 {
-            let label = UILabel()
+        for _ in 0..<TotalRowCount {
+            let label = SGMarkerLabel()
             label.textColor = UIColor.white
             label.numberOfLines = 0;
             label.translatesAutoresizingMaskIntoConstraints = false
