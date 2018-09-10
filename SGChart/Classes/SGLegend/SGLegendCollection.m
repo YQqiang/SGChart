@@ -17,7 +17,7 @@
 @property (nonatomic, strong) NSLayoutConstraint *collectionViewHeightConstraint;
 @property (nonatomic, strong) NSArray <SGLegendModel *>*dataSource;
 @property (nonatomic, strong) NSArray <SGLegendModel *>*origianlDataSource;
-@property (nonatomic, strong) id<IUpdateChartDataSG, IChartDataSet> chartView;
+@property (nonatomic, strong) ChartViewBase<IUpdateChartDataSG> *chartView;
 
 @end
 
@@ -137,7 +137,7 @@
 }
 
 #pragma mark - public action
-- (void)config:(NSArray <SGLegendModel *>*)dataSource chartView:(id<IUpdateChartDataSG, IChartDataSet>)chartView {
+- (void)config:(NSArray <SGLegendModel *>*)dataSource chartView:(ChartViewBase<IUpdateChartDataSG> *)chartView {
     self.chartView = chartView;
     self.dataSource = dataSource;
 }

@@ -75,7 +75,7 @@
     model.chartDataSet = data.barData.dataSets.lastObject;
     [arr addObject:model];
     
-    [self.chartView.legendView config:arr chartView:(id<IChartDataSet, IUpdateChartDataSG>)self.chartView.combinedChartView];
+    [self.chartView.legendView config:arr chartView:self.chartView.combinedChartView];
 }
 
 - (LineChartData *)generateLineData {

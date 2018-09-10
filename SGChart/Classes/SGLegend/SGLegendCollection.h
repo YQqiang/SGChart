@@ -14,6 +14,6 @@
 
 @property (nonatomic, copy) void (^didSelectItemAtIndexPath)(NSIndexPath *indexPath, NSArray <SGLegendModel *>*dataSource);
 
-- (void)config:(NSArray <SGLegendModel *>*)dataSource chartView:(id<IUpdateChartDataSG, IChartDataSet>)chartView;
+- (void)config:(NSArray <SGLegendModel *>*)dataSource chartView:(ChartViewBase<IUpdateChartDataSG> *)chartView;
 
 @end
