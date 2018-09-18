@@ -90,13 +90,14 @@ public class SGMarkerView: UIView {
                 label.text = text
             }
         }
+        self.layoutIfNeeded()
         
         var finalOrigin = self.frame.origin;
         let superViewW = self.superview?.frame.width ?? 0
         let superViewH = self.superview?.frame.height ?? 0
         
         finalOrigin.x = positon.x > superViewW * 0.5 ? positon.x - self.frame.width : positon.x
-        finalOrigin.y = (superViewH - positon.y - 24) > self.frame.height ? positon.y : superViewH - self.frame.height - 24
+        finalOrigin.y = (superViewH - positon.y - 44) > self.frame.height ? positon.y : superViewH - self.frame.height - 44
         
         topConstraint?.constant = finalOrigin.y
         leadingConstraint?.constant = finalOrigin.x
