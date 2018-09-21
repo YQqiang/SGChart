@@ -100,3 +100,60 @@ extension ChartData {
     }
 }
 
+extension BarChartData {
+    @objc open func sgGroupBars(fromX: Double, groupSpace: Double, barSpace: Double)
+    {
+        let setCount = dataSets.count
+        if setCount < 1
+        {
+            print("BarData needs to hold at least 1 BarDataSet to allow grouping.", terminator: "\n")
+            return
+        }
+        
+        let max = maxEntryCountSet
+        let maxEntryCount = max?.entryCount ?? 0
+        
+        let groupSpaceWidthHalf = groupSpace / 2.0
+        let barSpaceHalf = barSpace / 2.0
+        let barWidthHalf = self.barWidth / 2.0
+        
+        var fromX = fromX
+        
+        let interval = groupWidth(groupSpace: groupSpace, barSpace: barSpace)
+        
+        for i in stride(from: 0, to: maxEntryCount, by: 1)
+        {
+            let start = fromX
+            fromX += groupSpaceWidthHalf
+            
+            (dataSets as? [IBarChartDataSet])?.forEach { set in
+                fromX += barSpaceHalf
+                fromX += barWidthHalf
+                
+                if i < set.entryCount
+                {
+                    if let entry = set.entryForIndex(i)
+                    {
+                        entry.x = fromX
+                    }
+                }
+                
+                fromX += barWidthHalf
+                fromX += barSpaceHalf
+            }
+            
+            fromX += groupSpaceWidthHalf
+            let end = fromX
+            let innerInterval = end - start
+            let diff = interval - innerInterval
+            
+            // correct rounding errors
+            if diff > 0 || diff < 0
+            {
+                fromX += diff
+            }
+        }
+        notifyDataChanged()
+    }
+}
+

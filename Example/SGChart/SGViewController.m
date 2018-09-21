@@ -131,7 +131,7 @@
     d.barWidth = barWidth;
     
     // make this BarData object grouped
-    [d groupBarsFromX:0.0 groupSpace:groupSpace barSpace:barSpace]; // start at x = 0
+    [d sgGroupBarsFromX:0.0 groupSpace:groupSpace barSpace:barSpace]; // start at x = 0
     
     return d;
 }
