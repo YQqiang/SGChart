@@ -10,6 +10,9 @@ import UIKit
 import Charts
 
 public class SGCombinedChartView: CombinedChartView {
+    
+    /// 图表的绘制函数回调
+    @objc open var drawClosure: ((_ rect: CGRect, _ chartView: SGCombinedChartView) -> Void)?
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,5 +67,11 @@ public class SGCombinedChartView: CombinedChartView {
         // 图例配置
         legend.enabled = false
     }
-
+    
+    public override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        if let closure = drawClosure {
+            closure(rect, self)
+        }
+    }
 }

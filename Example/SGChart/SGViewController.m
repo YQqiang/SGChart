@@ -150,7 +150,7 @@
 }
 
 - (void)sgChartTranslated:(SGChartView *)sgChartView dX:(CGFloat)dX dY:(CGFloat)dY {
-    sgChartView.markerView.hidden = YES;
+//    sgChartView.markerView.hidden = YES;
     NSLog(@"----- dX = %lf, ----- dY = %lf", dX, dY);
 }
 

@@ -44,6 +44,17 @@ static const CGFloat ChartViewHeight = 200;
         _combinedChartView = [[SGCombinedChartView alloc] initWithFrame:CGRectZero];
         _combinedChartView.delegate = self;
         [_combinedChartView addSubview:self.markerView];
+        __weak typeof(self) weakSelf = self;
+        // 监听图表的绘制函数, 检测当前高亮选项是否在图表内, 处理是否显示MarkerView
+        [_combinedChartView setDrawClosure:^(CGRect rect, SGCombinedChartView * _Nonnull chartV) {
+            BOOL showMarker = chartV.highlighted.count > 0;
+            if (showMarker) {
+                ChartHighlight *highlight = chartV.highlighted.firstObject;
+                CGPoint point = [chartV getMarkerPositionWithHighlight:highlight];
+                showMarker = [chartV.viewPortHandler isInBoundsWithX:point.x y:point.y];
+            }
+            weakSelf.markerView.hidden = !showMarker;
+        }];
         self.markerView.hidden = YES;
     }
     return _combinedChartView;
