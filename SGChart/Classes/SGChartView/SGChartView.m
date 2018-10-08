@@ -47,7 +47,7 @@ static const CGFloat ChartViewHeight = 200;
         __weak typeof(self) weakSelf = self;
         // 监听图表的绘制函数, 检测当前高亮选项是否在图表内, 处理是否显示MarkerView
         [_combinedChartView setDrawClosure:^(CGRect rect, SGCombinedChartView * _Nonnull chartV) {
-            BOOL showMarker = chartV.highlighted.count > 0;
+            BOOL showMarker = chartV.highlighted.count > 0 && !self.markerView.hidden;
             if (showMarker) {
                 ChartHighlight *highlight = chartV.highlighted.firstObject;
                 CGPoint point = [chartV getMarkerPositionWithHighlight:highlight];
