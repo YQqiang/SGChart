@@ -25,8 +25,10 @@
     if (!_chartView) {
         _chartView = [[SGChartView alloc] init];
         _chartView.sgChartViewDelegate = self;
+        _chartView.combinedChartView.noDataText = @"暂无数据";
         _chartView.combinedChartView.scaleXEnabled = YES;
         _chartView.yUnitView.leftUnitLabel.text = NSLocalizedString(@"left y axis (unit)", @"");
+        _chartView.yUnitView.rightUnitLabel.text = NSLocalizedString(@"right y axis (unit)", @"");
         _chartView.combinedChartView.drawOrder = @[@(CombinedChartDrawOrderLine)];
         __weak typeof(self) weakSelf = self;
         [_chartView.legendView setDidSelectItemAtIndexPath:^(NSIndexPath *indexPath, NSArray<SGLegendModel *> *legendModels) {
@@ -185,7 +187,7 @@
         }
     }];
     [content removeObjectsInArray:removeContent];
-    [content insertObject:@"标题" atIndex:0];
+    [content insertObject:[NSString stringWithFormat:@"标题 index = %zd", index] atIndex:0];
     if (content.count <= 1) {
         self.chartView.markerView.hidden = YES;
     } else {
