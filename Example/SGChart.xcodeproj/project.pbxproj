@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2FB0454D212F92610049B448 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0454C212F92610049B448 /* Test.swift */; };
+		2FE510F9221D3E2700B0FE99 /* LineDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FE510F8221D3E2700B0FE99 /* LineDemoView.m */; };
+		2FE510FB221D3E3B00B0FE99 /* BarDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE510FA221D3E3B00B0FE99 /* BarDemoView.swift */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -40,7 +41,9 @@
 /* Begin PBXFileReference section */
 		1F5F9DF4AC971B2C2DB528AD /* Pods-SGChart_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SGChart_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SGChart_Example/Pods-SGChart_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2FB0454B212F92610049B448 /* SGChart_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SGChart_Example-Bridging-Header.h"; sourceTree = "<group>"; };
-		2FB0454C212F92610049B448 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		2FE510F7221D3E2700B0FE99 /* LineDemoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LineDemoView.h; sourceTree = "<group>"; };
+		2FE510F8221D3E2700B0FE99 /* LineDemoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LineDemoView.m; sourceTree = "<group>"; };
+		2FE510FA221D3E3B00B0FE99 /* BarDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarDemoView.swift; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SGChart_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGChart_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,10 +151,12 @@
 			children = (
 				6003F59C195388D20070C39A /* SGAppDelegate.h */,
 				6003F59D195388D20070C39A /* SGAppDelegate.m */,
-				2FB0454C212F92610049B448 /* Test.swift */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* SGViewController.h */,
 				6003F5A6195388D20070C39A /* SGViewController.m */,
+				2FE510F7221D3E2700B0FE99 /* LineDemoView.h */,
+				2FE510F8221D3E2700B0FE99 /* LineDemoView.m */,
+				2FE510FA221D3E3B00B0FE99 /* BarDemoView.swift */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -366,8 +371,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE510F9221D3E2700B0FE99 /* LineDemoView.m in Sources */,
 				6003F59E195388D20070C39A /* SGAppDelegate.m in Sources */,
-				2FB0454D212F92610049B448 /* Test.swift in Sources */,
+				2FE510FB221D3E3B00B0FE99 /* BarDemoView.swift in Sources */,
 				6003F5A7195388D20070C39A /* SGViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
