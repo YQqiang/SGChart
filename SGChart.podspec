@@ -31,7 +31,6 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '9.3'
 
   s.source_files = 'SGChart/**/*'
-  s.swift_version = "4.1"
 
   # s.resource_bundles = {
   #   'SGChart' => ['SGChart/Assets/*.png']
@@ -39,5 +38,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-   s.dependency 'Charts', '~> 3.1.1'
+   s.dependency 'Charts'
 end

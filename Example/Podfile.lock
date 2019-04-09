@@ -1,9 +1,9 @@
 PODS:
-  - Charts (3.1.1):
-    - Charts/Core (= 3.1.1)
-  - Charts/Core (3.1.1)
-  - SGChart (0.1.0):
-    - Charts (~> 3.1.1)
+  - Charts (3.2.2):
+    - Charts/Core (= 3.2.2)
+  - Charts/Core (3.2.2)
+  - SGChart (0.2.0):
+    - Charts
 
 DEPENDENCIES:
   - SGChart (from `../`)
@@ -17,9 +17,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Charts: 90a4d61da0f6e06684c591e3bcab11940fe61736
-  SGChart: 7dab0386c679c4d0c3c4e8f0836459357e4d25cc
+  Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
+  SGChart: e6fe0a04c3bfb9d3278eea042fb3b929cd985ec4
 
 PODFILE CHECKSUM: 395d9786fe96a36da470c568a93737020c65a37b
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.0.beta.3
