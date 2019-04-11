@@ -27,7 +27,6 @@
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
         SGLegendFlowLayout *flowLayout = [[SGLegendFlowLayout alloc] init];
-        flowLayout.legendAlignment = SGLegendAlignmentLeft;
         flowLayout.minimumInteritemSpacing = 8;
         flowLayout.minimumLineSpacing = 8;
         flowLayout.sectionInset = UIEdgeInsetsMake(0, 16, 0, 16);
@@ -59,6 +58,10 @@
     [self createView];
 }
 
+- (void)dealloc {
+    [self removeObserver:self.collectionView forKeyPath:@"contentSize"];
+}
+
 #pragma mark - view
 - (void)createView {
     [self addSubview:self.collectionView];
@@ -69,6 +72,25 @@
     [self.collectionView.rightAnchor constraintEqualToAnchor:self.rightAnchor].active = YES;
     self.collectionViewHeightConstraint = [self.collectionView.heightAnchor constraintEqualToConstant:8];
     self.collectionViewHeightConstraint.active = YES;
+    [self.collectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if (object == self.collectionView && [keyPath isEqualToString:@"contentSize"]) {
+        CGSize sizeOld = [change[NSKeyValueChangeOldKey] CGSizeValue];
+        CGSize sizeNew = [change[NSKeyValueChangeNewKey] CGSizeValue];
+        if (sizeNew.height > 0 && !CGSizeEqualToSize(sizeOld, sizeNew)) {
+            self.collectionViewHeightConstraint.constant = sizeNew.height;
+            [self layoutIfNeeded];
+        }
+    } else {
+        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
+
+- (void)reloadCollectionViewData {
+    [self.collectionView reloadData];
+    [self.collectionView.collectionViewLayout invalidateLayout];
 }
 
 #pragma mark - action
@@ -76,9 +98,7 @@
 - (void)setDataSource:(NSArray<SGLegendModel *> *)dataSource {
     _dataSource = dataSource;
     self.origianlDataSource = [[NSArray alloc] initWithArray:dataSource copyItems:YES];
-    [UIView performWithoutAnimation:^{
-        [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:0]];
-    }];
+    [self reloadCollectionViewData];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -98,7 +118,6 @@
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    self.collectionViewHeightConstraint.constant = self.collectionView.collectionViewLayout.collectionViewContentSize.height;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -111,10 +130,7 @@
         id<IChartDataSet> originalChartDataSet = self.origianlDataSource[indexPath.row].chartDataSet;
         model.chartDataSet = [SGLegendModel copyItem:originalChartDataSet];
     }
-    //    [UIView performWithoutAnimation:^{
-    //        [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-    //    }];
-    [collectionView reloadData];
+    [self reloadCollectionViewData];
     NSArray *tempArr = [[NSArray alloc] initWithArray:self.dataSource copyItems:YES];
     if (self.didSelectItemAtIndexPath) {
         self.didSelectItemAtIndexPath(indexPath, tempArr);

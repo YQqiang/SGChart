@@ -8,14 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum : NSUInteger {
-    SGLegendAlignmentLeft = 0,
-    SGLegendAlignmentCenter,
-    SGLegendAlignmentRight,
-} SGLegendAlignment;
-
 @interface SGLegendFlowLayout : UICollectionViewFlowLayout
-
-@property (nonatomic, assign) SGLegendAlignment legendAlignment;
 
 @end
