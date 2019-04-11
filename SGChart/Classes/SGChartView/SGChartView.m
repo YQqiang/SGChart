@@ -107,7 +107,7 @@ static const CGFloat ChartViewHeight = 200;
 
 #pragma mark - action
 - (void)chartHeightConstraint:(CGFloat)height active:(BOOL)active {
-    [self chartHeightConstraint:height active:active layout:YES];
+    [self chartHeightConstraint:height active:active layout:NO];
 }
 
 - (void)chartHeightConstraint:(CGFloat)height active:(BOOL)active layout:(BOOL)need {

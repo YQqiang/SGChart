@@ -29,7 +29,21 @@
 @property (nonatomic, strong, readonly) SGCombinedChartView *combinedChartView;
 @property (nonatomic, strong, readonly) SGMarkerView *markerView;
 
+/**
+ 更改图表高度, 是否激活约束, 是否需要重新布局
+
+ @param height 高度
+ @param active 是否激活
+ @param need 是否需要重新布局
+ */
 - (void)chartHeightConstraint:(CGFloat)height active:(BOOL)active layout:(BOOL)need;
+
+/**
+ 更改图表高度及是否激活约束 (未调用 layoutIfNeeded)
+
+ @param height 图表高度
+ @param active 是否激活
+ */
 - (void)chartHeightConstraint:(CGFloat)height active:(BOOL)active;
 
 @end
