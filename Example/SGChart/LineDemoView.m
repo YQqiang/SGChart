@@ -71,7 +71,7 @@
     [self.chartView.leftAnchor constraintEqualToAnchor:self.leftAnchor].active = YES;
     [self.chartView.rightAnchor constraintEqualToAnchor:self.rightAnchor].active = YES;
     [self.chartView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
-    [self.chartView chartHeightConstraint:0 active:NO];
+    [self.chartView chartHeightConstraint:0 active:NO layout:NO];
     
     [self configDefaultData];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

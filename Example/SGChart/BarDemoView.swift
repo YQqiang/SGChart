@@ -102,7 +102,7 @@ class BarDemoView: UIView {
 extension BarDemoView {
     fileprivate func createView() {
         addSubview(chartView)
-        chartView.chartHeightConstraint(0, active: false)
+        chartView.chartHeightConstraint(0, active: false, layout: false)
         chartView.translatesAutoresizingMaskIntoConstraints = false
         chartView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         chartView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true

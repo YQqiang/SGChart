@@ -101,15 +101,21 @@ static const CGFloat ChartViewHeight = 200;
     [self.combinedChartView.leftAnchor constraintEqualToAnchor:self.leftAnchor].active = YES;
     [self.combinedChartView.rightAnchor constraintEqualToAnchor:self.rightAnchor].active = YES;
     self.chartHeightConstraint = [self.combinedChartView.heightAnchor constraintEqualToConstant:ChartViewHeight];
-    [self chartHeightConstraint:ChartViewHeight active:YES];
+    [self chartHeightConstraint:ChartViewHeight active:YES layout:false];
     [self.combinedChartView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor].active = YES;
 }
 
 #pragma mark - action
 - (void)chartHeightConstraint:(CGFloat)height active:(BOOL)active {
+    [self chartHeightConstraint:height active:active layout:YES];
+}
+
+- (void)chartHeightConstraint:(CGFloat)height active:(BOOL)active layout:(BOOL)need {
     self.chartHeightConstraint.constant = height;
     self.chartHeightConstraint.active = active;
-    [self.combinedChartView layoutIfNeeded];
+    if (need) {
+        [self.combinedChartView layoutIfNeeded];
+    }
 }
 
 #pragma mark - ChartViewDelegate

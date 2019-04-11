@@ -69,7 +69,6 @@
     [self.collectionView.rightAnchor constraintEqualToAnchor:self.rightAnchor].active = YES;
     self.collectionViewHeightConstraint = [self.collectionView.heightAnchor constraintEqualToConstant:8];
     self.collectionViewHeightConstraint.active = YES;
-    [self layoutIfNeeded];
 }
 
 #pragma mark - action

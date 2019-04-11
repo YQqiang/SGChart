@@ -29,6 +29,7 @@
 @property (nonatomic, strong, readonly) SGCombinedChartView *combinedChartView;
 @property (nonatomic, strong, readonly) SGMarkerView *markerView;
 
+- (void)chartHeightConstraint:(CGFloat)height active:(BOOL)active layout:(BOOL)need;
 - (void)chartHeightConstraint:(CGFloat)height active:(BOOL)active;
 
 @end
