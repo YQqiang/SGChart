@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'http://app.sungrow.cn:3000/yuqiang/SGChart'
+  s.homepage         = 'http://app.sungrow.cn:3000/iOS/SGChart'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
 #  s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'yuqiang' => '1054572107@qq.com' }
-  s.source           = { :git => 'http://app.sungrow.cn:3000/yuqiang/SGChart.git', :tag => s.version.to_s }
+  s.source           = { :git => 'http://app.sungrow.cn:3000/iOS/SGChart.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.3'
