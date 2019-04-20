@@ -78,7 +78,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if (object == self.collectionView && [keyPath isEqualToString:@"contentSize"]) {
         CGSize sizeOld = [change[NSKeyValueChangeOldKey] CGSizeValue];
-        CGSize sizeNew = [change[NSKeyValueChangeNewKey] CGSizeValue];
+        CGSize sizeNew = self.collectionView.collectionViewLayout.collectionViewContentSize;
         if (sizeNew.height > 0 && !CGSizeEqualToSize(sizeOld, sizeNew)) {
             self.collectionViewHeightConstraint.constant = sizeNew.height;
             [self layoutIfNeeded];
