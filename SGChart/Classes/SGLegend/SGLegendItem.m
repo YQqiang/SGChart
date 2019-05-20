@@ -72,14 +72,14 @@
 - (void)setLegendModel:(SGLegendModel *)legendModel {
     _legendModel = legendModel;
     if (legendModel.legendColor) {
-        self.legendColorLump.backgroundColor = legendModel.legendColor;
+        self.legendColorLump.backgroundColor = legendModel.isSelected ? UIColor.lightGrayColor : legendModel.legendColor;
     }
     
     if (legendModel.legendDesc) {
         self.legendDescription.text = legendModel.legendDesc;
     }
     
-    self.legendDescription.textColor = legendModel.isSelected ? [UIColor lightGrayColor] : [UIColor blackColor];
+    self.legendDescription.textColor = legendModel.isSelected ? UIColor.lightGrayColor : UIColor.blackColor;
 }
 
 #pragma mark - action

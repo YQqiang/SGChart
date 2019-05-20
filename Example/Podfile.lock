@@ -2,7 +2,7 @@ PODS:
   - Charts (3.2.2):
     - Charts/Core (= 3.2.2)
   - Charts/Core (3.2.2)
-  - SGChart (0.2.0):
+  - SGChart (0.2.4):
     - Charts
 
 DEPENDENCIES:
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
-  SGChart: e6fe0a04c3bfb9d3278eea042fb3b929cd985ec4
+  SGChart: a4f9f901e1780375935aee8e6eb9ec24a83a42c5
 
 PODFILE CHECKSUM: 395d9786fe96a36da470c568a93737020c65a37b
 
