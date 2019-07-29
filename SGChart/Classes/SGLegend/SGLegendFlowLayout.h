@@ -10,4 +10,8 @@
 
 @interface SGLegendFlowLayout : UICollectionViewFlowLayout
 
+- (void)setCommonRowHorizontalAlignment:(NSTextAlignment)comRowAlignment
+             lastRowHorizontalAlignment:(NSTextAlignment)lastRowAlignment
+                   rowVerticalAlignment:(NSTextAlignment) rowVerticalAlignment;
+
 @end
