@@ -14,6 +14,16 @@
 
 @implementation SGLegendFlowLayout
 
+- (instancetype)init {
+    if (self = [super init]) {
+        if (@available(iOS 10.0, *)) {
+        } else {
+            [self setCommonRowHorizontalAlignment:NSTextAlignmentLeft lastRowHorizontalAlignment:NSTextAlignmentLeft rowVerticalAlignment:NSTextAlignmentCenter];
+        }
+    }
+    return self;
+}
+
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
     
@@ -36,6 +46,25 @@
         maxY = MAX(CGRectGetMaxY(attribute.frame), maxY);
     }
     return attributes;
+}
+
+- (void)setCommonRowHorizontalAlignment:(NSTextAlignment)comRowAlignment
+             lastRowHorizontalAlignment:(NSTextAlignment)lastRowAlignment
+                   rowVerticalAlignment:(NSTextAlignment) rowVerticalAlignment {
+    NSDictionary *options = @{
+                              @"UIFlowLayoutCommonRowHorizontalAlignmentKey":@(comRowAlignment),
+                              @"UIFlowLayoutLastRowHorizontalAlignmentKey": @(lastRowAlignment),
+                              @"UIFlowLayoutRowVerticalAlignmentKey": @(rowVerticalAlignment)
+                              };
+    SEL sel = NSSelectorFromString(@"_setRowAlignmentsOptions:");
+    if ([self respondsToSelector:sel]) {
+        NSMethodSignature *signature = [self methodSignatureForSelector:sel];
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:signature];
+        [invocation setTarget:self];
+        [invocation setSelector:sel];
+        [invocation setArgument:&options atIndex:2];
+        [invocation invoke];
+    }
 }
 
 @end
