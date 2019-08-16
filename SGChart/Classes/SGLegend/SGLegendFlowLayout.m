@@ -50,7 +50,7 @@
 
 - (void)setCommonRowHorizontalAlignment:(NSTextAlignment)comRowAlignment
              lastRowHorizontalAlignment:(NSTextAlignment)lastRowAlignment
-                   rowVerticalAlignment:(NSTextAlignment) rowVerticalAlignment {
+                   rowVerticalAlignment:(NSTextAlignment)rowVerticalAlignment {
     NSDictionary *options = @{
                               @"UIFlowLayoutCommonRowHorizontalAlignmentKey":@(comRowAlignment),
                               @"UIFlowLayoutLastRowHorizontalAlignmentKey": @(lastRowAlignment),
