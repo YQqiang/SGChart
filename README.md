@@ -210,3 +210,5 @@
 ### 其他
 关于其他部分，`MarkerView`的实现 和 使用示例请参考`Example`。
 
+博客 地址 [Charts-拓展使用](http://yuqiangcoder.com/2019/02/21/Charts-%E6%8B%93%E5%B1%95%E4%BD%BF%E7%94%A8.html)
+
