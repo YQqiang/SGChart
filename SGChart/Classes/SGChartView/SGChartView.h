@@ -46,4 +46,16 @@
  */
 - (void)chartHeightConstraint:(CGFloat)height active:(BOOL)active;
 
+/// 通过像素点的柱状图宽度,计算Charts柱状图最优宽度的占比
+/// 柱状图最大宽度为 32.0 pt
+/// 柱状图之间最小间距为 16.0 pt
+/// @param xAxisCount x轴坐标数量
+- (CGFloat)optimalBarWidthRatioWithXAxisCount:(NSInteger)xAxisCount;
+
+/// 通过像素点的柱状图宽度,计算Charts柱状图最优宽度的占比
+/// @param maxBarWidth 柱状图最大宽度,单位pt, 总宽度超过视图宽度时 失效
+/// @param minBarSpace 柱状图之间的最小间距,单位pt,总宽度超过视图宽度时 有效
+/// @param xAxisCount x轴坐标数量
+- (CGFloat)optimalBarWidthRatioWithMaxBarWidth:(CGFloat)maxBarWidth minBarSpace:(CGFloat)minBarSpace xAxisCount:(NSInteger)xAxisCount;
+
 @end
